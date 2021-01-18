@@ -2,11 +2,10 @@
 
 ## Project Name
 
-The name of your project.
-
+IceBreaker
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and/or functionality.
+This full CRUD mini-game allows users to create, update, and play through levels from an airtable database. The goal of the game is to travel from point a to point b on a grid, touching each non-obstacle tile on the grid exactly once. 
 
 ## Wireframes
 
