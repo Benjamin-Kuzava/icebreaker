@@ -8,7 +8,7 @@ IceBreaker
 This full CRUD mini-game allows users to create, update, and play through levels from an airtable database. The goal of the game is to travel from point A to point B on a grid, touching each non-obstacle tile on the grid exactly once. Once a tile has been traversed, it cracks, meaning that traveling back to that tile will end the game.
 
 ## Wireframes
-
+### Desktop
 ##### Homepage Wireframe
 ![Wireframe](./assets/homePage.png)
 
@@ -17,6 +17,14 @@ This full CRUD mini-game allows users to create, update, and play through levels
 
 ##### Level Editor Wireframe
 ![Wireframe](./assets/levelForm.png)
+
+### Mobile
+
+#### Homepage Wireframe
+![Wireframe](./assets/mobileHome.png)
+
+#### Level Editor Wireframe
+![Wireframe](./assets/mobileEdit.png)
 
 ## Component Hierarchy
 ![Hierarchy](./assets/hierarchy2.png)
