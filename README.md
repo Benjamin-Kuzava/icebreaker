@@ -23,7 +23,7 @@ This full CRUD mini-game allows users to create, update, and play through levels
 
 ## API and Data Sample
 
-Below is a sample response from my airtable database.
+Below is a sample response from my airtable database, which tracks the level name, width and height of the grid, author, difficulty, and a stringified JSON representing the grid itself.
 
 ```json
 {
@@ -40,16 +40,6 @@ Below is a sample response from my airtable database.
             },
             "createdTime": "2021-01-19T23:25:04.000Z"
         },
-        {
-            "id": "recltBhXxIz3eKb86",
-            "fields": {},
-            "createdTime": "2021-01-19T23:25:04.000Z"
-        },
-        {
-            "id": "recidGJw7Y1u393cZ",
-            "fields": {},
-            "createdTime": "2021-01-19T23:25:04.000Z"
-        }
     ],
     "offset": "recidGJw7Y1u393cZ"
 }
