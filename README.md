@@ -18,6 +18,14 @@ This full CRUD mini-game allows users to create, update, and play through levels
 ##### Level Editor Wireframe
 ![Wireframe](./assets/levelForm.png)
 
+### Tablet
+
+#### Homepage Wireframe
+![Wireframe](./assets/tabletHome.png)
+
+#### Level Editor Wireframe
+![Wireframe](./assets/tabletEdit.png)
+
 ### Mobile
 
 #### Homepage Wireframe
