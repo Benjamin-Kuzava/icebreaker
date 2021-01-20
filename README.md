@@ -5,7 +5,7 @@
 IceBreaker
 ## Project Description
 
-This full CRUD mini-game allows users to create, update, and play through levels from an airtable database. The goal of the game is to travel from point a to point b on a grid, touching each non-obstacle tile on the grid exactly once. 
+This full CRUD mini-game allows users to create, update, and play through levels from an airtable database. The goal of the game is to travel from point A to point B on a grid, touching each non-obstacle tile on the grid exactly once. Once a tile has been traversed, it cracks, meaning that traveling back to that tile will end the game.
 
 ## Wireframes
 
@@ -23,7 +23,7 @@ This full CRUD mini-game allows users to create, update, and play through levels
 
 ## API and Data Sample
 
-Below is a sample response from my airtable database, which tracks the level name, width and height of the grid, author, difficulty, and a stringified JSON representing the grid itself.
+Below is a sample response from my airtable database, which tracks the author, level name, difficulty, width and height of the grid, and a stringified JSON representing the grid itself.
 
 ```json
 {
@@ -55,10 +55,10 @@ Below is a sample response from my airtable database, which tracks the level nam
 #### PostMVP  
 
 - Alert users if their custom level is unsolvable using a pathfinding algorithm.
-- Update existing levels
-- Add timer to track time to complete level
-- Add functionality to create levels of varying dimensions
-- Add option to generate random levels
+- Ability to update existing levels
+- Timer to track time to complete level
+- Functionality to create levels of varying dimensions
+- Option to generate random levels
 
 ## Project Schedule
 
@@ -78,7 +78,7 @@ Below is a sample response from my airtable database, which tracks the level nam
 | --- | :---: |  :---: | :---: | :---: |
 | Proposal | H | 3hrs| 3hrs | 3hrs |
 | Airtable Setup | H | 1hrs| 1hrs | 1hrs |
-| Basic Structure and Component Hierarchy | H | | 1hrs |  |
+| Basic Structure and Component Hierarchy | H | 1hrs | |  |
 | Navbar Navigation and Routing | H | 1hrs|  |  |
 | Basic CSS for Home | H | 3hrs|  |  |
 | Basic CSS for Lvl Select | H | 3hrs|  |  |
