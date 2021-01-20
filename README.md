@@ -9,66 +9,66 @@ This full CRUD mini-game allows users to create, update, and play through levels
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+##### Homepage Wireframe
+![Wireframe](./assets/homePage.png)
+
+##### Level Select Wireframe
+![Wireframe](./assets/levelSelect.png)
+
+##### Level Editor Wireframe
+![Wireframe](./assets/levelForm.png)
 
 ## Component Hierarchy
-Show your component hierarchy here! Use [this](https://cms-assets.tutsplus.com/uploads/users/1795/posts/30352/image/GettingStartedWithReduxTutorial-React-Component-Structure.png) as an example.
+![Hierarchy](./assets/hierarchy.png)
 
 ## API and Data Sample
 
-Show us a snippet of JSON returned by your Airtable (you can find it under the API documentation) so we know you can access it and get the info you need. This __must__ be properly formatted. An example is below:
+Below is a sample response from my airtable database.
 
 ```json
 {
     "records": [
         {
-            "id": "recONRzIUTuZ5lXaF",
+            "id": "recHTS4vn7mZSI4MU",
             "fields": {
-                "author": "Liz Yrineo",
-                "setup": "Why did the tomato turn red?",
-                "punchline": "Because it saw the salad dressing!"
+                "levelName": "Beginner Level",
+                "height": 3,
+                "difficulty": "easy",
+                "author": "Beej",
+                "width": 3,
+                "grid": "{\"0\":{\"x\":0,\"y\":0,\"obstacle\":false},\"1\":{\"x\":1,\"y\":0,\"obstacle\":false},\"2\":{\"x\":2,\"y\":0,\"obstacle\":false},\"3\":{\"x\":0,\"y\":1,\"obstacle\":false},\"4\":{\"x\":..."
             },
-            "createdTime": "2020-11-30T16:03:09.000Z"
+            "createdTime": "2021-01-19T23:25:04.000Z"
         },
         {
-            "id": "rec3oYZ5Tp0AIDsKe",
-            "fields": {
-                "author": "Rachel Moskowitz",
-                "setup": "What did the green grape say to the red grape?",
-                "punchline": "Breathe, idiot, breathe!"
-            },
-            "createdTime": "2020-11-30T16:03:09.000Z"
+            "id": "recltBhXxIz3eKb86",
+            "fields": {},
+            "createdTime": "2021-01-19T23:25:04.000Z"
         },
         {
-            "id": "recA34tOaoE1IVeC1",
-            "fields": {
-                "author": "Gary Grant",
-                "setup": "How do you make holy water?",
-                "punchline": "You boil the hell out of it!"
-            },
-            "createdTime": "2020-11-30T16:03:09.000Z"
+            "id": "recidGJw7Y1u393cZ",
+            "fields": {},
+            "createdTime": "2021-01-19T23:25:04.000Z"
         }
     ],
-    "offset": "recA34tOaoE1IVeC1"
+    "offset": "recidGJw7Y1u393cZ"
 }
 ```
 
 ### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MVP and PostMVP.  Carefully decide what is placed into your MVP, as the client will expect this functionality to be implemented upon project completion.  
-
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Home page with routes to respective pages
+- Playable levels using on-click and/or keyboard controls
+- Get and post level/level information from airtable
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
-- Use local storage to save user favorites
+- Alert users if their custom level is unsolvable using a pathfinding algorithm.
+- Update existing levels
+- Add timer to track time to complete level
+- Add functionality to create levels of varying dimensions
+- Add option to generate random levels
 
 ## Project Schedule
 
