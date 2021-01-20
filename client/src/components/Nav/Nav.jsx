@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom';
+import './Nav.css'
 
 const Nav = (props) => {
     return (
-        <nav>
-            <Link to='/'>Icebreaker</Link>
-            <Link to='/select'>Browse Levels</Link>
-            <Link to='/new'>Create Levels</Link>
-        </nav>
+        <>
+            <input type="checkbox" className='nav-toggle' id='nav-toggle'/>
+            <nav>
+                <ul>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/select'>Browse Levels</Link></li>
+                <li><Link to='/new'>Create Levels</Link></li>
+                </ul>
+            </nav>
+            <label htmlFor="nav-toggle" className='nav-toggle-label'><span></span></label>
+        </>
     )
 }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import produce from 'immer';
 import './Grid.css'
 
 const numRows = 3;
@@ -18,7 +19,7 @@ const Grid = (props) => {
     const [grid, setGrid] = useState(() => generateEmptyGrid());
 
     return (
-        < div style={{
+        <main style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${numCols}, 5em)`,
             width: '50vw',
@@ -28,13 +29,19 @@ const Grid = (props) => {
             {grid.map((rows, i) => 
             rows.map((col, k) => <div 
             key={`${i}${k}`}
+            onClick={() => {
+                const newGrid = produce(grid, gridCopy => {
+                    gridCopy[i][k] = grid[i][k] ? 0 : 1;
+                })
+                setGrid(newGrid);
+            }}
             style={{
                 width: '5em',
                 height: '5em',
                 backgroundColor: grid[i][k] ? 'blue' : undefined,
-                border: 'solid 1px black'
+                border: 'solid 1px #C4FFF9'
             }}/>))}
-        </div>
+        </main>
     )
 }
 
