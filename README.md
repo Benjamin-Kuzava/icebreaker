@@ -72,17 +72,15 @@ Below is a sample response from my airtable database.
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations. Here's an example.
-
 |  Day | Deliverable | Status
 |---|---| ---|
-|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|July 13| Project Approval | Incomplete
-|July 13| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|July 14| Pseudocode / actual code | Incomplete
-|July 15| Initial Clickable Model  | Incomplete
-|July 16| MVP | Incomplete
-|July 17| Presentations | Incomplete
+|Jan 20| Proposal Approval / Airtable setup | Complete
+|Jan 21| Component Layout & Routing / Get, Set, & Post Data | Incomplete
+|Jan 22| Jan 21 cont'd / Basic CSS | Incomplete
+|Jan 23| Basic CSS / MVP | Incomplete
+|Jan 24| Post-MVP CSS  | Incomplete
+|Jan 25-26| Post-MVP functionality | Incomplete
+|Jan 27| Presentations | Incomplete
 
 ## Timeframes
 
