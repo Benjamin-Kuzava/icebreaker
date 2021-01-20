@@ -19,7 +19,7 @@ This full CRUD mini-game allows users to create, update, and play through levels
 ![Wireframe](./assets/levelForm.png)
 
 ## Component Hierarchy
-![Hierarchy](./assets/hierarchy.png)
+![Hierarchy](./assets/hierarchy2.png)
 
 ## API and Data Sample
 
