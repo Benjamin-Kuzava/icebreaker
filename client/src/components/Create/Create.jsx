@@ -4,7 +4,7 @@ import Form from '../Form/Form.jsx'
 import { useState } from 'react';
 
 
-const LevelCreate = (props) => {
+const Create = (props) => {
     // States to be passed between siblings
     const [gridLayout, setGridLayout] = useState('');
     const [gridWidth, setGridWidth] = useState(1);
@@ -27,4 +27,4 @@ const LevelCreate = (props) => {
     )
 }
 
-export default LevelCreate;
+export default Create;
