@@ -1,28 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import produce from 'immer';
 import './Grid.css'
 
 
 const Grid = (props) => {
     // Determines size of grid. Change into variables later.
-    const numRows = 3;
-    const numCols = 7;
-    // const numRows = props.gridHeight;
-    // const numCols = props.gridWidth;
+    let numRows = props.gridHeight;
+    let numCols = props.gridWidth;
     const size = [numRows, numCols];
-    // console.log(props.gridHeight)
-    // console.log(props.gridWidth)
+
+    console.log(numRows)
     
     // Generate matrix all initialized to zero
     const generateEmptyGrid = () => {
         const rows = [];
         for (let i = 0; i < size[0]; i++) {
-         rows.push(Array.from(Array(size[1]), () => 0));
+            rows.push(Array.from(Array(size[1]), () => 0));
         }
         return rows;
     }
     // Set grid to matrix from generateEmptyGrid
     const [grid, setGrid] = useState(() => generateEmptyGrid());
+
+    useEffect(() => {
+        setGrid(generateEmptyGrid)
+    }, [numCols, numRows]);
 
     return (
         <main className ='container' style={{
@@ -42,8 +44,6 @@ const Grid = (props) => {
                 })
                 setGrid(newGrid);
                 props.setGridLayout(JSON.stringify(newGrid))
-                console.log(newGrid)
-                console.log(JSON.stringify(newGrid));
             }}
             style={{
                 width: '5em',
