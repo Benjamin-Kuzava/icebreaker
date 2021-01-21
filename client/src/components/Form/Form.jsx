@@ -22,6 +22,7 @@ const Form = (props) => {
             difficulty
         };
         await axios.post(baseURL, { fields: newLevel }, config);
+        props.setToggleFetch((prev) => !prev);
     }
 
     useEffect(() => {

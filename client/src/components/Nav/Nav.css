@@ -129,7 +129,7 @@ nav a:hover {
         right: 0;
         transform: scale(0,1);
         /* transform-origin: left; */
-        transition: transform ease-in-out 400ms;
+        transition: transform ease-in-out 250ms;
         border-radius: 5px;
     }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header.jsx'
 import Home from './components/Home/Home.jsx'
@@ -10,12 +10,14 @@ import { baseURL, config } from './services';
 
 const App = () => {
   const [levels, setLevels] = useState([]);
-  const [toggleFetch, setToggleFetch] = useState(false)
+  const [toggleFetch, setToggleFetch] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     const getLevels = async () => {
       const resp = await axios.get(baseURL, config);
       setLevels(resp.data.records);
+      history.push('/');
     }
     getLevels();
   }, [toggleFetch]);

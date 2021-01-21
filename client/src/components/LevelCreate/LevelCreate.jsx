@@ -12,7 +12,7 @@ const LevelCreate = (props) => {
 
     return (
         <>
-            <Form gridLayout={gridLayout} setGridWidth={setGridWidth} setGridHeight={setGridHeight}/>
+            <Form gridLayout={gridLayout} setGridWidth={setGridWidth} setGridHeight={setGridHeight} setToggleFetch={props.setToggleFetch}/>
             <Grid setGridLayout={setGridLayout} gridWidth={gridWidth} gridHeight={gridHeight}/>
         </>
     )
