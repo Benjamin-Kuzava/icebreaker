@@ -29,21 +29,8 @@ body {
     align-items: center;
 }
 
-header {
-    background: rgba(7, 190, 184, .85);
-    padding: 1em 0;
-    text-align: center;
-    position: fixed;
-    z-index: 10;
-    width: 100vw;
-}
-
-.logo {
-    margin: 0;
-    color: #C4FFF9;
-}
-
-main {
+.container {
     grid-row: 2 / 3;
     grid-column: 1 / -1;
+    /* align-self: center; */
 }

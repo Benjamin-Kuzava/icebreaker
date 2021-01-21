@@ -1,0 +1,11 @@
+form {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    margin: 0 auto;
+    background: rgba(7, 190, 184, .85);
+    padding: 1em;
+    border-radius: 5px;
+    /* width: 80vw;
+    display: flex;
+    flex-direction: column; */
+}
