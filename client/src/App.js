@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header.jsx'
 import Home from './components/Home/Home.jsx'
+import LevelBrowse from './components/LevelBrowse/LevelBrowse.jsx'
 import LevelCreate from './components/LevelCreate/LevelCreate.jsx'
 import { baseURL, config } from './services';
 
@@ -29,6 +30,10 @@ const App = () => {
         <LevelCreate setToggleFetch={setToggleFetch}/>
       </Route>
       <Route path='/select'>
+        <LevelBrowse levels={levels}/>
+      </Route>
+      <Route path='/select/:id'>
+        <LevelBrowse levels={levels}/>
       </Route>
     </div>
   );

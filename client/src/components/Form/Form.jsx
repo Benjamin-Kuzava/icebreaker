@@ -1,4 +1,4 @@
-import './Form.css'
+import './Form.css';
 import { useEffect, useState } from 'react';
 import { baseURL, config } from '../../services'
 import axios from 'axios';
@@ -26,7 +26,7 @@ const Form = (props) => {
 
     useEffect(() => {
         setGrid(props.gridLayout)
-    },[props.gridLayout])
+    },[props.gridLayout]);
 
     return (
         <form action="">
@@ -64,8 +64,8 @@ const Form = (props) => {
                 max='9'
                 value={width}
                 onChange={(e) => {
-                    setWidth(e.target.valueAsNumber)
-                    props.setGridWidth(e.target.valueAsNumber)
+                    setWidth(e.target.valueAsNumber);
+                    props.setGridWidth(e.target.valueAsNumber);
                 }}
             />
             <label htmlFor="difficulty">Difficulty: </label>

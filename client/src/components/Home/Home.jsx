@@ -1,8 +1,11 @@
+// import { useState, useEffect } from 'react';
 import Grid from '../Grid/Grid.jsx'
 
 const Home = (props) => {
     return (
-        <Grid />
+        <>
+            <Grid gridHeight={4} gridWidth={4}/>
+        </>
     )
 }
 

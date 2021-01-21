@@ -1,0 +1,18 @@
+.level-container {
+    /* border: 2px solid white; */
+    grid-row: 1 / -1 ;
+    grid-column: 1 / 2;
+    height: 90%;
+    width: 60%;
+    color: #C4FFF9;
+    background: #646165;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .6);
+}
+
+.card {
+    border: 1px solid white;
+    margin: 1em;
+    padding: .25em;
+}
