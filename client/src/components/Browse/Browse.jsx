@@ -5,7 +5,7 @@ import List from '../List/List';
 
 const LevelBrowse = (props) => {
     const params = useParams();
-
+    let level = [];
 
     useEffect(() => {
         if(props.levels.length > 0 && params.id) {
@@ -17,9 +17,11 @@ const LevelBrowse = (props) => {
     return (
         <>
             <List levels={props.levels}/>
-            <Grid gridHeight={3} gridWidth={3}/>
+            {level.fields && <Grid gridHeight={level.fields.height} gridWidth={level.fields.width}/>}
         </>
     )
 }
 
 export default LevelBrowse;
+
+// useRef to keep the value of level?

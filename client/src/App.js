@@ -4,8 +4,8 @@ import { Route, useHistory } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header.jsx'
 import Home from './components/Home/Home.jsx'
-import LevelBrowse from './components/LevelBrowse/LevelBrowse.jsx'
-import LevelCreate from './components/LevelCreate/LevelCreate.jsx'
+import LevelBrowse from './components/Browse/Browse.jsx'
+import LevelCreate from './components/Create/Create.jsx'
 import { baseURL, config } from './services';
 
 const App = () => {
@@ -20,20 +20,24 @@ const App = () => {
       history.push('/');
     }
     getLevels();
-  }, [toggleFetch]);
+  }, [toggleFetch, history]);
 
   return (
     <div className="App">
       <Header />
-      <Route exact path='/'>
+
+      <Route exact path='/'> 
         <Home levels={levels} />
       </Route>
+
       <Route path='/new'>
         <LevelCreate setToggleFetch={setToggleFetch}/>
       </Route>
+
       <Route path='/select'>
         <LevelBrowse levels={levels}/>
       </Route>
+
       <Route path='/select/:id'>
         <LevelBrowse levels={levels}/>
       </Route>

@@ -1,4 +1,4 @@
-import './LevelCreate.css';
+import './Create.css';
 import Grid from '../Grid/Grid.jsx'
 import Form from '../Form/Form.jsx'
 import { useState } from 'react';
@@ -12,8 +12,17 @@ const LevelCreate = (props) => {
 
     return (
         <>
-            <Form gridLayout={gridLayout} setGridWidth={setGridWidth} setGridHeight={setGridHeight} setToggleFetch={props.setToggleFetch}/>
-            <Grid setGridLayout={setGridLayout} gridWidth={gridWidth} gridHeight={gridHeight}/>
+            <Form 
+                gridLayout={gridLayout} 
+                setGridWidth={setGridWidth} 
+                setGridHeight={setGridHeight} 
+                setToggleFetch={props.setToggleFetch}
+            />
+            <Grid 
+                setGridLayout={setGridLayout} 
+                gridWidth={gridWidth}
+                gridHeight={gridHeight}
+            />
         </>
     )
 }
