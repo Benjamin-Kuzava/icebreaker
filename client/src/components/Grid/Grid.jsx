@@ -3,9 +3,9 @@ import produce from 'immer';
 import './Grid.css';
 
 const Grid = (props) => {
-    // Determines size of grid. Change into variables later.
-    const numRows = props.gridHeight;
-    const numCols = props.gridWidth;
+    const { gridHeight, gridWidth, gridLayout, setGridLayout, isCreate } = props;
+    const numRows = gridHeight;
+    const numCols = gridWidth;
 
     // Generate matrix all initialized to zero
     const generateEmptyGrid = () => {
@@ -22,8 +22,8 @@ const Grid = (props) => {
     useEffect(() => {
         setGrid(() => {
             let rows = [];
-            if (props.gridLayout) {
-                rows = props.gridLayout;
+            if (gridLayout) {
+                rows = gridLayout;
             } else {
                 for (let i = 0; i < numRows; i++) {
                     rows.push(Array.from(Array(numCols), () => 0));
@@ -31,7 +31,7 @@ const Grid = (props) => {
             }
             return rows;
         });
-    }, [numCols, numRows, props.gridLayout]);
+    }, [numCols, numRows, gridLayout]);
 
     return (
         <main className ='container' style={{
@@ -41,16 +41,16 @@ const Grid = (props) => {
             rows.map((col, k) => <div 
             key={`${i}${k}`}
             onClick={() => {
-                if (!props.isCreate) return;
+                if (!isCreate) return;
                 const newGrid = produce(grid, gridCopy => {
                 gridCopy[i][k] = grid[i][k] ? 0 : 1;
                 })
                 setGrid(newGrid);
-                props.setGridLayout(JSON.stringify(newGrid));
+                setGridLayout(JSON.stringify(newGrid));
             }}
             // consider making this a decoration function
             style={{
-                backgroundColor: grid[i][k] ? 'blue' : undefined,
+                backgroundColor: grid[i][k] ? 'blue' : 'rgba(79, 81, 101, 1)',
             }}/>
             ))}
         </main>

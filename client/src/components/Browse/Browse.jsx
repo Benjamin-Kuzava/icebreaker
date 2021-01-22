@@ -13,8 +13,6 @@ const Browse = (props) => {
         }
     },[params.id, props.levels]);
 
-    // const grid = JSON.parse(level.fields.grid);
-
     return (
         <>
             <List levels={props.levels}/>

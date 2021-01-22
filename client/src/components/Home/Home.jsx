@@ -1,10 +1,27 @@
-// import { useState, useEffect } from 'react';
-import Grid from '../Grid/Grid.jsx'
+import { useState, useEffect } from 'react';
+import './Home.css';
+import Grid from '../Grid/Grid.jsx';
 
 const Home = (props) => {
+    const [level, setLevel] = useState('');
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        if(props.levels.length > 0) {
+            setLevel(props.levels.find((level, index) => index === count));
+        }
+    },[count, props.levels]);
+
     return (
         <>
-            <Grid gridHeight={4} gridWidth={4}/>
+            {level && <Grid 
+                gridHeight={level.fields.height} 
+                gridWidth={level.fields.width}
+                gridLayout={JSON.parse(level.fields.grid)}
+            />}
+            <button onClick={() =>
+                count === props.levels.length - 1? setCount(0) : setCount(count + 1)
+                }>Next</button>
         </>
     )
 }

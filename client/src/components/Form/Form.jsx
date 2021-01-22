@@ -50,7 +50,7 @@ const Form = (props) => {
                 name="height"
                 type="number"
                 min='1'
-                max='9'
+                max='11'
                 value={height}
                 onChange={(e) => {
                     setHeight(e.target.valueAsNumber);
@@ -62,7 +62,7 @@ const Form = (props) => {
                 name="width"
                 type="number"
                 min='1'
-                max='9'
+                max='11'
                 value={width}
                 onChange={(e) => {
                     setWidth(e.target.valueAsNumber);
