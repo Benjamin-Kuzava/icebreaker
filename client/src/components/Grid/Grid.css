@@ -1,12 +1,12 @@
 .container {
-    display: grid;
-    width: 50vw;
-    margin: 0 auto;
-    justify-content: center;
+  display: grid;
+  width: 50vw;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .container div {
-    width: 5em;
-    height: 5em;
-    border: solid 1px #C4FFF9;
+  width: 5em;
+  height: 5em;
+  border: solid 1px #c4fff9;
 }

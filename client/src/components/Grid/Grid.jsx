@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import produce from 'immer';
-import './Grid.css'
+import './Grid.css';
 
 const Grid = (props) => {
     // Determines size of grid. Change into variables later.
@@ -15,6 +15,7 @@ const Grid = (props) => {
         }
         return rows;
     }
+
     // Set grid to matrix from generateEmptyGrid
     const [grid, setGrid] = useState(() => generateEmptyGrid());
 
@@ -39,8 +40,8 @@ const Grid = (props) => {
             {grid.map((rows, i) => 
             rows.map((col, k) => <div 
             key={`${i}${k}`}
-            // Create shallow copy of grid, toggle state of the individual square
             onClick={() => {
+                if (!props.isCreate) return;
                 const newGrid = produce(grid, gridCopy => {
                 gridCopy[i][k] = grid[i][k] ? 0 : 1;
                 })

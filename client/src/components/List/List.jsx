@@ -1,5 +1,5 @@
-import './List.css'
-import { NavLink } from 'react-router-dom'
+import './List.css';
+import { NavLink } from 'react-router-dom';
 
 const List = (props) => {
 

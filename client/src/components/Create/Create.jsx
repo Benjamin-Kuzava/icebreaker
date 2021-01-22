@@ -19,6 +19,7 @@ const Create = (props) => {
                 setToggleFetch={props.setToggleFetch}
             />
             <Grid className ='container'
+                isCreate
                 setGridLayout={setGridLayout} 
                 gridWidth={gridWidth}
                 gridHeight={gridHeight}

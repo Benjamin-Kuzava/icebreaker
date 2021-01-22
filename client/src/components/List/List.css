@@ -1,18 +1,27 @@
 .level-container {
-    /* border: 2px solid white; */
-    grid-row: 1 / -1 ;
-    grid-column: 1 / 2;
-    height: 90%;
-    width: 60%;
-    color: #C4FFF9;
-    background: #646165;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .6);
+  /* border: 2px solid white; */
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+  height: 90%;
+  width: 60%;
+  color: #c4fff9;
+  background: #646165;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
 .card {
-    border: 1px solid white;
-    margin: 1em;
-    padding: .25em;
+  border: 1px solid white;
+  margin: 1em;
+  padding: 0.25em;
+}
+
+.card a {
+  text-decoration: none;
+  color: #c4fff9;
+}
+
+.card h6 {
+  margin: 1em;
 }
