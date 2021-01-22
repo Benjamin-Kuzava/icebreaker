@@ -10,3 +10,19 @@
   height: 5em;
   border: solid 1px #c4fff9;
 }
+
+.node {
+  background-color: rgba(79, 81, 101, 1);
+}
+
+.node-start {
+  background-color: green;
+}
+
+.node-end {
+  background-color: red;
+}
+
+.node-wall {
+  background-color: blue;
+}

@@ -7,8 +7,8 @@ import { useState } from 'react';
 const Create = (props) => {
     // States to be passed between siblings
     const [gridLayout, setGridLayout] = useState('');
-    const [gridWidth, setGridWidth] = useState(1);
-    const [gridHeight, setGridHeight] = useState(1);
+    const [gridWidth, setGridWidth] = useState(3);
+    const [gridHeight, setGridHeight] = useState(3);
 
     return (
         <>

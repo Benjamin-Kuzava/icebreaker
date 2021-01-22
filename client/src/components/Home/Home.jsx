@@ -14,7 +14,8 @@ const Home = (props) => {
 
     return (
         <>
-            {level && <Grid 
+            {level && <Grid
+                isHome 
                 gridHeight={level.fields.height} 
                 gridWidth={level.fields.width}
                 gridLayout={JSON.parse(level.fields.grid)}

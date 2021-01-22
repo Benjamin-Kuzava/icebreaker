@@ -6,8 +6,8 @@ import axios from 'axios';
 const Form = (props) => {
     const [levelName, setLevelName] = useState('');
     const [author, setAuthor] = useState('');
-    const [width, setWidth] = useState(1);
-    const [height, setHeight] = useState(1);
+    const [width, setWidth] = useState(3);
+    const [height, setHeight] = useState(3);
     const [grid, setGrid] = useState('');
     const [difficulty, setDifficulty] = useState('');
 

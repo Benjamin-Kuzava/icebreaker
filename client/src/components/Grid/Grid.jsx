@@ -7,6 +7,15 @@ const Grid = (props) => {
     const numRows = gridHeight;
     const numCols = gridWidth;
 
+    const nodeClassification = (grid, i, k) => 
+        i === numRows - 1 && k === Math.ceil((numCols - 1) / 2)
+        ? 'node-start' 
+        : i === 0 && k === Math.floor((numCols - 1) / 2)
+        ? 'node-end'
+        : grid[i][k]
+        ? 'node-wall'
+        : "";
+
     // Generate matrix all initialized to zero
     const generateEmptyGrid = () => {
         const rows = [];
@@ -39,6 +48,7 @@ const Grid = (props) => {
         }}>
             {grid.map((rows, i) => 
             rows.map((col, k) => <div 
+            className={`node ${nodeClassification(grid, i, k)}`}
             key={`${i}${k}`}
             onClick={() => {
                 if (!isCreate) return;
@@ -48,10 +58,7 @@ const Grid = (props) => {
                 setGrid(newGrid);
                 setGridLayout(JSON.stringify(newGrid));
             }}
-            // consider making this a decoration function
-            style={{
-                backgroundColor: grid[i][k] ? 'blue' : 'rgba(79, 81, 101, 1)',
-            }}/>
+            />
             ))}
         </main>
     )
