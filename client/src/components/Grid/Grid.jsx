@@ -6,6 +6,7 @@ const Grid = (props) => {
     // Determines size of grid. Change into variables later.
     const numRows = props.gridHeight;
     const numCols = props.gridWidth;
+
     // Generate matrix all initialized to zero
     const generateEmptyGrid = () => {
         const rows = [];
@@ -19,13 +20,17 @@ const Grid = (props) => {
 
     useEffect(() => {
         setGrid(() => {
-            const rows = [];
-            for (let i = 0; i < numRows; i++) {
-                rows.push(Array.from(Array(numCols), () => 0));
+            let rows = [];
+            if (props.gridLayout) {
+                rows = props.gridLayout;
+            } else {
+                for (let i = 0; i < numRows; i++) {
+                    rows.push(Array.from(Array(numCols), () => 0));
+                }
             }
             return rows;
         });
-    }, [numCols, numRows]);
+    }, [numCols, numRows, props.gridLayout]);
 
     return (
         <main className ='container' style={{

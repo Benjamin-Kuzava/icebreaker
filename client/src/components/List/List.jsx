@@ -1,5 +1,5 @@
 import './List.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const List = (props) => {
 
@@ -8,7 +8,7 @@ const List = (props) => {
         <div className='level-container'>
             {props.levels && props.levels.map(level => (
             <div key={level.id} className='card'>
-                <Link to={`/select/${level.id}`}>{`Level: ${level.fields.levelName}`}</Link>
+                <NavLink activeStyle={{ fontWeight: 700 }} to={`/select/${level.id}`}>{`Level: ${level.fields.levelName}`}</NavLink>
                 <h6>{`Difficulty: ${level.fields.difficulty}`}</h6>
             </div>
         ))}
