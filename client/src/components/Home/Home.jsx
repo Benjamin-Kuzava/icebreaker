@@ -19,11 +19,8 @@ const Home = (props) => {
                 gridHeight={level.fields.height} 
                 gridWidth={level.fields.width}
                 gridLayout={JSON.parse(level.fields.grid)}
+                setCount={setCount}
             />}
-            <button 
-            onClick={() =>
-                count === props.levels.length - 1? setCount(0) : setCount(count + 1)
-                }>Next</button>
         </>
     )
 }

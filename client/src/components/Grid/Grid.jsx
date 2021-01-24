@@ -1,27 +1,35 @@
 import { useState, useEffect } from 'react';
 import produce from 'immer';
 import './Grid.css';
-import Node from '../Node/Node.jsx'
-import { checkNextNode } from '../../logic/logic'
+import Node from '../Node/Node.jsx';
+import { checkNextNode } from '../../logic/logic';
 
 const Grid = (props) => {
-    const { gridHeight, gridWidth, gridLayout, setGridLayout, isCreate, isHome } = props;
-    const numRows = gridHeight;
-    const numCols = gridWidth;
+    const { 
+        gridHeight: numRows, 
+        gridWidth: numCols, 
+        gridLayout, 
+        setGridLayout, 
+        isCreate, 
+        isHome,
+        setCount, 
+    } = props;
 
     //Gives a class name to each node depending on what kind of node it is
     const nodeClassification = (grid, i, k) => 
-        grid[i][k] === 2
+        grid[i][k] === 1
+        ? 'node-wall'    
+        : grid[i][k] === 2
         ? 'node-end'
         : grid[i][k] === 3
         ? 'node-current' 
         : grid[i][k] === 4
         ? 'node-visited'
-        : grid[i][k] === 1
-        ? 'node-wall'
+        : grid[i][k] === 5
+        ? 'node-broken'
         : "";
 
-    // Generate matrix all initialized to zero
+    // Generate matrix initialized to zero
     const generateEmptyGrid = () => {
         const rows = [];
         for (let i = 0; i < numRows; i++) {
@@ -67,13 +75,10 @@ const Grid = (props) => {
                 isEnd={i === 0 && k === Math.floor((numCols - 1) / 2)}
                 isVisited={false}
                 isWall={grid[i][k] === 1 ? true : false}
-                nodeI={i}
-                nodeK={k}
                 onClick={(e) => {
                     if (isHome) {
-                        const newGrid = checkNextNode(grid, i, k)
+                        const newGrid = checkNextNode(grid, i, k, setCount);
                         setGrid(newGrid);
-                        // handleMouseMovement(e);
                     } else if (isCreate) {
                         const newGrid = produce(grid, gridCopy => {
                         gridCopy[i][k] = grid[i][k] ? 0 : 1;

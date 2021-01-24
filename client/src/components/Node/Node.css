@@ -1,0 +1,41 @@
+.node {
+  background-color: rgba(79, 81, 101, 1);
+}
+
+.node-start {
+  background-color: green;
+  position: relative;
+}
+
+.node-end {
+  background-color: #bc4b51;
+  position: relative;
+}
+
+.node-wall {
+  background-color: rgb(51, 51, 51);
+}
+
+.node-current {
+  position: relative;
+}
+
+.node-visited {
+  background-color: #3dccc7;
+}
+
+.node-current::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  height: 2em;
+  width: 2em;
+  background-color: green;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.node-broken {
+  background-color: black;
+}

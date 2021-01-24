@@ -1,48 +1,51 @@
 import produce from 'immer';
 
-export const isNeighbor = (iPrev, kPrev, iCurr, kCurr) => {
-    if ((iCurr === iPrev + 1 && kCurr === kPrev) 
-    || (iCurr === iPrev - 1 && kCurr === kPrev) 
-    || (iCurr === iPrev && kCurr === kPrev + 1) 
-    || (iCurr === iPrev && kCurr === kPrev - 1)) {
-        return true;
-    }  else {
-        return false;
-    }
+// if clicked node is a neighbor of the previous currentNode
+const isNeighbor = (iPrev, kPrev, iCurr, kCurr) => {
+    return ((kCurr === kPrev && (iCurr === iPrev + 1 || iCurr === iPrev - 1))
+    || (iCurr === iPrev && ( kCurr === kPrev + 1 || kCurr === kPrev - 1 )))
 }
 
-const checkForZeroes = (grid) => {
-    let result = true
-    for (const row of grid) {
-        for (const node of row) {
+// When an endNode is clicked, check if there are any unvisited tiles
+const isUnvisitedTiles = (grid) => {
+    let result = true;
+    for (const rows of grid) {
+        for (const node of rows) {
           if (node === 0) {
             result = false;
           }
         }
       }
-      return result
+      return result;
 }
 
-export const checkNextNode = (grid, i, k) => {
+export const checkNextNode = (grid, i, k, setCount) => {
+        // make shallow copy
     const newGrid = produce(grid, gridCopy => {
         let iPrev;
         let kPrev;
-    gridCopy.map((rows, i) => 
-        rows.map((col, k) => {
-            if (gridCopy[i][k] === 3) {
+        // find previous currentPosition and store its col and row
+    gridCopy.find((rows, i) => 
+        rows.some((col, k) => {
             iPrev = i;
-            kPrev = k; 
-            }
-            return 0;
+            kPrev = k;
+            return gridCopy[i][k] === 3;
         }))
+        
+        // if node is a valid neighbor of currentPosition && is unvisited
         if(isNeighbor(iPrev, kPrev, i, k) && gridCopy[i][k] === 0) {
             gridCopy[iPrev][kPrev] = 4;
             gridCopy[i][k] = grid[i][k] && grid[i][k] !== 2 ? 0 : 3;
-        } else if (gridCopy[i][k] === 2 && checkForZeroes(gridCopy)) {
+        // if node is endNode && all non-walls have been visited
+        } else if (gridCopy[i][k] === 2 && isUnvisitedTiles(gridCopy)) {
             gridCopy[iPrev][kPrev] = 4;
             gridCopy[i][k] = 3;
+            setCount((prev) => prev + 1);
             console.log('win');
-        } else if (gridCopy[i][k] === 4 || (!checkForZeroes(gridCopy) && gridCopy[i][k] === 2)) {
+        // if node is visited
+        } else if (gridCopy[i][k] === 4) {
+            gridCopy[iPrev][kPrev] = 0;
+            gridCopy[i][k] = 5;
             console.log('Game Over');
         }
     })

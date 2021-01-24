@@ -80,10 +80,10 @@ Below is a sample response from my airtable database, which tracks the author, l
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Jan 20| Proposal Approval / Airtable setup | Complete
-|Jan 21| Component Layout & Routing / Get, Set, & Post Data | Incomplete
-|Jan 22| Jan 21 cont'd / Basic CSS | Incomplete
-|Jan 23| Basic CSS / MVP | Incomplete
+|Jan 20| Proposal Approval / Airtable setup | Completed
+|Jan 21| Component Layout & Routing / Get, Set, & Post Data | Completed
+|Jan 22| Jan 21 cont'd / Basic CSS | Completed
+|Jan 23| Basic CSS / MVP | In Progress
 |Jan 24| Post-MVP CSS  | Incomplete
 |Jan 25-26| Post-MVP functionality | Incomplete
 |Jan 27| Presentations | Incomplete
@@ -94,16 +94,16 @@ Below is a sample response from my airtable database, which tracks the author, l
 | --- | :---: |  :---: | :---: | :---: |
 | Proposal | H | 3hrs| 3hrs | 3hrs |
 | Airtable Setup | H | 1hrs| 1hrs | 1hrs |
-| Basic Structure and Component Hierarchy | H | 1hrs | |  |
-| Navbar Navigation and Routing | H | 1hrs|  |  |
+| Basic Structure and Component Hierarchy | H | 1hrs | 1hr | 1hr |
+| Navbar Navigation and Routing | H | 1hrs| 1hr | 1hr |
 | Basic CSS for Home | H | 3hrs|  |  |
-| Basic CSS for Lvl Select | H | 3hrs|  |  |
+| Basic CSS for Lvl Select | H | 3hrs| 3hrs | 3hrs |
 | Basic CSS for Lvl Create | H | 3hrs|  |  |
-| GET / POST Airtable Data | H | 2hrs|  |  |
+| GET / POST Airtable Data | H | 2hrs| 3hrs | 3hrs |
 | Logic for Reading Grid Layout From Airtable | H | 2hrs|  |  |
-| Making Grid Editable | H | 2hrs|  |  |
-| Logic for Traversing Grid / Playing Game | H | 3hrs|  |  |
-| Logic for Win/Loss & Resetting | H | 3hrs|  |  |
+| Making Grid Editable | H | 2hrs| 3hrs | 3hrs |
+| Logic for Traversing Grid / Playing Game | H | 3hrs | 6hrs | 6hrs |
+| Logic for Win/Loss & Resetting | H | 3hrs| 2hrs | 2hrs |
 | Pathfinding Logic for Checking Level Solution | H | 5hrs|  |  |
 | Update/Delete Airtable Data | H | 3hrs|  |  |
 | Total | H | 36hrs |  |  |

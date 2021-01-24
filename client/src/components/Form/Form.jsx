@@ -1,6 +1,6 @@
 import './Form.css';
 import { useEffect, useState } from 'react';
-import { baseURL, config } from '../../services'
+import { baseURL, config } from '../../services';
 import axios from 'axios';
 
 const Form = (props) => {
