@@ -13,7 +13,7 @@ const Grid = (props) => {
     //Gives a class name to each node depending on what kind of node it is
     const nodeClassification = (grid, i, k) => 
         i === numRows - 1 && k === Math.ceil((numCols - 1) / 2)
-        ? 'node-start' 
+        ? 'node-current' 
         : i === 0 && k === Math.floor((numCols - 1) / 2)
         ? 'node-end'
         : grid[i][k]
@@ -37,6 +37,10 @@ const Grid = (props) => {
             let rows = [];
             if (gridLayout) {
                 rows = gridLayout;
+                // console.log(rows)
+                // rows.map((rows, i => rows.map((col, k) => {
+                //     rows[i][k] === 1 ? console.log(`${rows[i][k]}`): console.log('error') 
+                // })))
             } else {
                 for (let i = 0; i < numRows; i++) {
                     rows.push(Array.from(Array(numCols), () => 0));
@@ -46,20 +50,20 @@ const Grid = (props) => {
         });
     }, [numCols, numRows, gridLayout]);
 
-    const hash = {
-        up: 0,
-        right: 1,
-        down: 2,
-        left: 3,
-    }
+    // const hash = {
+    //     up: 0,
+    //     right: 1,
+    //     down: 2,
+    //     left: 3,
+    // }
 
     // Custom hook to track keypresses
         // adapted from https://www.youtube.com/watch?v=DqpPgK13oEM
-    useKeyPress((e) => {
-        const direction = e.key.replace('Arrow','').toLowerCase();
-        if (hash.hasOwnProperty(direction)) console.log(direction);
-        // e.preventDefault();
-    })
+    // useKeyPress((e) => {
+    //     const direction = e.key.replace('Arrow','').toLowerCase();
+    //     if (hash.hasOwnProperty(direction)) console.log(direction);
+    //     e.preventDefault();
+    // })
 
     return (
         <main className ='container'
@@ -69,7 +73,13 @@ const Grid = (props) => {
             rows.map((col, k) => <Node 
             className={`node ${nodeClassification(grid, i, k)}`}
             key={`${i},${k}`}
-            nodePosition={`${i},${k}`}
+            isCurrent={i === numRows - 1 && k === Math.ceil((numCols - 1) / 2)}    
+            isEnd={i === 0 && k === Math.floor((numCols - 1) / 2)}
+            isVisited={false}
+            isWall={!!grid[i][k]}
+            nodeI={i}
+            nodeK={k}
+            grid={grid}
             onClick={(e) => {
                 if (isHome) {
                     handleMouseMovement(e);
