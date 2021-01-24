@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import produce from 'immer';
 import './Grid.css';
-import { handleKeyPress } from '../../logic/maze'
+import Node from '../Node/Node.jsx'
+import { handleMouseMovement } from '../../logic/logic'
+import useKeyPress from '../../hooks/use-key-press'
 
 const Grid = (props) => {
-    const { gridHeight, gridWidth, gridLayout, setGridLayout, isCreate } = props;
+    const { gridHeight, gridWidth, gridLayout, setGridLayout, isCreate, isHome } = props;
     const numRows = gridHeight;
     const numCols = gridWidth;
 
@@ -44,29 +46,42 @@ const Grid = (props) => {
         });
     }, [numCols, numRows, gridLayout]);
 
-    useEffect(() => {
-        console.log('grid did mount');
-        document.getElementById('container').focus();
-    },[]);
+    const hash = {
+        up: 0,
+        right: 1,
+        down: 2,
+        left: 3,
+    }
+
+    // Custom hook to track keypresses
+        // adapted from https://www.youtube.com/watch?v=DqpPgK13oEM
+    useKeyPress((e) => {
+        const direction = e.key.replace('Arrow','').toLowerCase();
+        if (hash.hasOwnProperty(direction)) console.log(direction);
+        // e.preventDefault();
+    })
 
     return (
         <main className ='container'
-            id='container'
-            onKeyDown={handleKeyPress}
-            tabIndex='0' 
             style={{gridTemplateColumns: `repeat(${numCols}, 5em)`,}}
         >
             {grid.map((rows, i) => 
-            rows.map((col, k) => <div 
+            rows.map((col, k) => <Node 
             className={`node ${nodeClassification(grid, i, k)}`}
-            key={`${i}-${k}`}
-            onClick={() => {
-                if (!isCreate) return;
-                const newGrid = produce(grid, gridCopy => {
-                gridCopy[i][k] = grid[i][k] ? 0 : 1;
-                })
-                setGrid(newGrid);
-                setGridLayout(JSON.stringify(newGrid));
+            key={`${i},${k}`}
+            nodePosition={`${i},${k}`}
+            onClick={(e) => {
+                if (isHome) {
+                    handleMouseMovement(e);
+                } else if (isCreate) {
+                    const newGrid = produce(grid, gridCopy => {
+                    gridCopy[i][k] = grid[i][k] ? 0 : 1;
+                    })
+                    setGrid(newGrid);
+                    setGridLayout(JSON.stringify(newGrid));
+                } else {
+                    return;
+                }
             }}
             />
             ))}
