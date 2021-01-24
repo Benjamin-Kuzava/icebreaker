@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import produce from 'immer';
 import './Grid.css';
 import Node from '../Node/Node.jsx'
-import { handleMouseMovement } from '../../logic/logic'
-import useKeyPress from '../../hooks/use-key-press'
+import { checkNextNode } from '../../logic/logic'
 
 const Grid = (props) => {
     const { gridHeight, gridWidth, gridLayout, setGridLayout, isCreate, isHome } = props;
@@ -12,11 +11,13 @@ const Grid = (props) => {
 
     //Gives a class name to each node depending on what kind of node it is
     const nodeClassification = (grid, i, k) => 
-        i === numRows - 1 && k === Math.ceil((numCols - 1) / 2)
-        ? 'node-current' 
-        : i === 0 && k === Math.floor((numCols - 1) / 2)
+        grid[i][k] === 2
         ? 'node-end'
-        : grid[i][k]
+        : grid[i][k] === 3
+        ? 'node-current' 
+        : grid[i][k] === 4
+        ? 'node-visited'
+        : grid[i][k] === 1
         ? 'node-wall'
         : "";
 
@@ -29,7 +30,6 @@ const Grid = (props) => {
         return rows;
     }
 
-    // Set grid to matrix from generateEmptyGrid
     const [grid, setGrid] = useState(() => generateEmptyGrid());
 
     useEffect(() => {
@@ -37,33 +37,23 @@ const Grid = (props) => {
             let rows = [];
             if (gridLayout) {
                 rows = gridLayout;
-                // console.log(rows)
-                // rows.map((rows, i => rows.map((col, k) => {
-                //     rows[i][k] === 1 ? console.log(`${rows[i][k]}`): console.log('error') 
-                // })))
             } else {
                 for (let i = 0; i < numRows; i++) {
                     rows.push(Array.from(Array(numCols), () => 0));
+                    for (let k = 0; k < numCols; k++) {
+                        if (i === numRows - 1 && k === Math.ceil((numCols - 1) / 2)) {
+                            rows[i][k] = 3;
+                        } else if (i === 0 && k === Math.floor((numCols - 1) / 2)) {
+                            rows[i][k] = 2;
+                        } else {
+                            rows[i][k] = 0;
+                        }
+                    }
                 }
             }
             return rows;
         });
     }, [numCols, numRows, gridLayout]);
-
-    // const hash = {
-    //     up: 0,
-    //     right: 1,
-    //     down: 2,
-    //     left: 3,
-    // }
-
-    // Custom hook to track keypresses
-        // adapted from https://www.youtube.com/watch?v=DqpPgK13oEM
-    // useKeyPress((e) => {
-    //     const direction = e.key.replace('Arrow','').toLowerCase();
-    //     if (hash.hasOwnProperty(direction)) console.log(direction);
-    //     e.preventDefault();
-    // })
 
     return (
         <main className ='container'
@@ -71,28 +61,29 @@ const Grid = (props) => {
         >
             {grid.map((rows, i) => 
             rows.map((col, k) => <Node 
-            className={`node ${nodeClassification(grid, i, k)}`}
-            key={`${i},${k}`}
-            isCurrent={i === numRows - 1 && k === Math.ceil((numCols - 1) / 2)}    
-            isEnd={i === 0 && k === Math.floor((numCols - 1) / 2)}
-            isVisited={false}
-            isWall={!!grid[i][k]}
-            nodeI={i}
-            nodeK={k}
-            grid={grid}
-            onClick={(e) => {
-                if (isHome) {
-                    handleMouseMovement(e);
-                } else if (isCreate) {
-                    const newGrid = produce(grid, gridCopy => {
-                    gridCopy[i][k] = grid[i][k] ? 0 : 1;
-                    })
-                    setGrid(newGrid);
-                    setGridLayout(JSON.stringify(newGrid));
-                } else {
-                    return;
-                }
-            }}
+                className={`node ${nodeClassification(grid, i, k)}`}
+                key={`${i}-${k}`}
+                isCurrent={i === numRows - 1 && k === Math.ceil((numCols - 1) / 2)}    
+                isEnd={i === 0 && k === Math.floor((numCols - 1) / 2)}
+                isVisited={false}
+                isWall={grid[i][k] === 1 ? true : false}
+                nodeI={i}
+                nodeK={k}
+                onClick={(e) => {
+                    if (isHome) {
+                        const newGrid = checkNextNode(grid, i, k)
+                        setGrid(newGrid);
+                        // handleMouseMovement(e);
+                    } else if (isCreate) {
+                        const newGrid = produce(grid, gridCopy => {
+                        gridCopy[i][k] = grid[i][k] ? 0 : 1;
+                        })
+                        setGrid(newGrid);
+                        setGridLayout(JSON.stringify(newGrid));
+                    } else {
+                        return;
+                    }
+                }}
             />
             ))}
         </main>

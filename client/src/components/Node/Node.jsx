@@ -7,11 +7,7 @@ const Node = (props) => {
         <div
             className={className}
             onClick={(e) => {
-                let i = props.nodeI;
-                let k = props.nodeK;
-                console.log(`i: ${i} k: ${k}`)
-                
-                // if (grid[i + 1][k])
+
                 onClick(e);
             }}
         />
