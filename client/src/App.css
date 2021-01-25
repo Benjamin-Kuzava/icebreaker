@@ -18,7 +18,7 @@
 body {
   margin: 0;
   background-color: rgba(79, 81, 101, 1);
-  /* color: var(--gray200); */
+  font-family: "Raleway", sans-serif;
 }
 
 .App {

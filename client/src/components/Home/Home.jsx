@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Home.css';
 import Grid from '../Grid/Grid.jsx';
+import GameOver from '../GameOver/GameOver.jsx';
 
 const Home = (props) => {
     const [level, setLevel] = useState('');
@@ -14,6 +15,7 @@ const Home = (props) => {
 
     return (
         <>
+            {/* <GameOver /> */}
             {level && <Grid
                 isHome 
                 gridHeight={level.fields.height} 

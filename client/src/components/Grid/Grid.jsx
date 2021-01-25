@@ -65,7 +65,10 @@ const Grid = (props) => {
 
     return (
         <main className ='container'
-            style={{gridTemplateColumns: `repeat(${numCols}, 5em)`,}}
+            style={{
+                gridTemplateColumns: `repeat(${numCols}, 5em)`,
+                gridTemplateRows: `repeat(${numRows}, 5em)`
+            }}
         >
             {grid.map((rows, i) => 
             rows.map((col, k) => <Node 

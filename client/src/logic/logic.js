@@ -25,6 +25,7 @@ export const checkNextNode = (grid, i, k, setCount) => {
         let iPrev;
         let kPrev;
         // find previous currentPosition and store its col and row
+        // look in to useRef or  here actually.
     gridCopy.find((rows, i) => 
         rows.some((col, k) => {
             iPrev = i;
@@ -40,7 +41,9 @@ export const checkNextNode = (grid, i, k, setCount) => {
         } else if (gridCopy[i][k] === 2 && isUnvisitedTiles(gridCopy)) {
             gridCopy[iPrev][kPrev] = 4;
             gridCopy[i][k] = 3;
-            setCount((prev) => prev + 1);
+            setTimeout(() => {
+                setCount((prev) => prev + 1);
+            }, 750);
             console.log('win');
         // if node is visited
         } else if (gridCopy[i][k] === 4) {
@@ -55,7 +58,7 @@ export const checkNextNode = (grid, i, k, setCount) => {
 
 
 
-
+// Leftover logic for keyboard controls
 // export const handleKeyPress = (e) => {
 //     switch(e.key) {
 //         case 'a':

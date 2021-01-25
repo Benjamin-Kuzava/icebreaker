@@ -1,5 +1,10 @@
 .node {
   background-color: rgba(79, 81, 101, 1);
+  box-sizing: border-box;
+  border: solid 1px #c4fff9;
+  cursor: pointer;
+  /* width: 5em;
+  height: 5em; */
 }
 
 .node-start {
@@ -24,7 +29,7 @@
   background-color: #3dccc7;
 }
 
-.node-current::before {
+/* .node-current::before {
   content: "";
   position: absolute;
   top: 25%;
@@ -34,7 +39,7 @@
   background-color: green;
   border-radius: 50%;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-}
+} */
 
 .node-broken {
   background-color: black;

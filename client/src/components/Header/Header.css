@@ -1,13 +1,14 @@
 header {
-    background: rgba(7, 190, 184, .85);
-    padding: 1em 0;
-    text-align: center;
-    position: fixed;
-    z-index: 10;
-    width: 100vw;
+  background: rgba(7, 190, 184, 0.85);
+  padding: 1em 0;
+  text-align: center;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
 }
 
 .logo {
-    margin: 0;
-    color: #C4FFF9;
+  margin: 0;
+  color: #c4fff9;
+  font-family: "Coda", cursive;
 }
