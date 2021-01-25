@@ -3,10 +3,14 @@ button {
 }
 
 .home {
-  border: 5px solid #c4fff9;
-  border-radius: 5px;
-  padding: 1em;
-  /* box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5); */
+  border: 2px solid #c4fff9;
+  padding: 1em 1em 20px 1em;
+  background-color: rgba(7, 190, 184, 0.2);
+  animation: fadeIn ease-in-out 0.25s;
+}
+
+.level-info > * {
+  margin: 0.5em;
 }
 
 .level-info {
@@ -20,6 +24,12 @@ button {
 
 .level-info h2,
 .loading {
+  margin: 0;
   font-family: "Coda", cursive;
   color: #c4fff9;
+}
+
+.level-info h2,
+.level-info h3 {
+  align-self: center;
 }

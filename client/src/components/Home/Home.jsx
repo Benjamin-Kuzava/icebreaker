@@ -1,18 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Home.css';
 import Grid from '../Grid/Grid.jsx';
 import Button from '../Button/Button.jsx';
-import GameOver from '../GameOver/GameOver.jsx';
+// import GameOver from '../GameOver/GameOver.jsx';
 
 const Home = (props) => {
+    const { setGridLayout } = props;
     const [level, setLevel] = useState('');
     const [count, setCount] = useState(0);
+    const gridRef = useRef('');
+
+    const handleReset = () => {
+        setGridLayout(JSON.parse(gridRef.current.fields.grid));
+    }
 
     useEffect(() => {
         if(props.levels.length > 0) {
             setLevel(props.levels.find((level, index) => index === count));
+            gridRef.current = level;
         }
-    },[count, props.levels]);
+    },[count, props.levels, level]);
 
     if(!level) {
         return (
@@ -29,7 +36,7 @@ const Home = (props) => {
                 <div className="level-info">
                     <Button 
                         value='Reset'
-                        onClick={() => console.log(test)}
+                        onClick={() => handleReset()}
                     />
                     <h2>Level: {level.fields.levelName}</h2>
                     <h3>Count: {`${count}/${props.levels.length - 1}`}</h3> 
@@ -40,6 +47,7 @@ const Home = (props) => {
                     gridWidth={level.fields.width}
                     gridLayout={JSON.parse(level.fields.grid)}
                     setCount={setCount}
+                    handleReset={handleReset}
                 />}
             </div>
         </>

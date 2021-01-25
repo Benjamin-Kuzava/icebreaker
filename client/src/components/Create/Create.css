@@ -1,0 +1,24 @@
+.create {
+  border: 2px solid #c4fff9;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2em;
+  background-color: rgba(7, 190, 184, 0.2);
+  max-width: 70%;
+  animation: fadeIn ease-in-out 0.25s;
+}
+
+.create > * {
+  margin: 1em;
+}
+
+@media screen and (max-width: 700px) {
+  .create {
+    flex-direction: column;
+  }
+
+  .create .container {
+    order: -1;
+  }
+}

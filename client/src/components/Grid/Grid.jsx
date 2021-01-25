@@ -12,7 +12,8 @@ const Grid = (props) => {
         setGridLayout, 
         isCreate, 
         isHome,
-        setCount, 
+        setCount,
+        handleReset, 
     } = props;
 
     //Gives a class name to each node depending on what kind of node it is
@@ -80,7 +81,7 @@ const Grid = (props) => {
                 isWall={grid[i][k] === 1 ? true : false}
                 onClick={(e) => {
                     if (isHome) {
-                        const newGrid = checkNextNode(grid, i, k, setCount);
+                        const newGrid = checkNextNode(grid, i, k, setCount, handleReset);
                         setGrid(newGrid);
                     } else if (isCreate) {
                         const newGrid = produce(grid, gridCopy => {

@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-// if clicked node is a neighbor of the previous currentNode
+// Check if clicked node is a neighbor of the previous currentNode
 const isNeighbor = (iPrev, kPrev, iCurr, kCurr) => {
     return ((kCurr === kPrev && (iCurr === iPrev + 1 || iCurr === iPrev - 1))
     || (iCurr === iPrev && ( kCurr === kPrev + 1 || kCurr === kPrev - 1 )))
@@ -19,7 +19,7 @@ const isUnvisitedTiles = (grid) => {
       return result;
 }
 
-export const checkNextNode = (grid, i, k, setCount) => {
+export const checkNextNode = (grid, i, k, setCount, handleReset) => {
         // make shallow copy
     const newGrid = produce(grid, gridCopy => {
         let iPrev;
@@ -50,6 +50,9 @@ export const checkNextNode = (grid, i, k, setCount) => {
             gridCopy[iPrev][kPrev] = 0;
             gridCopy[i][k] = 5;
             console.log('Game Over');
+            setTimeout(() => {
+                handleReset();
+            }, 500);
         }
     })
     return newGrid;

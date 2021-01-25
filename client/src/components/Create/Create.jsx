@@ -6,24 +6,26 @@ import { useState } from 'react';
 
 const Create = (props) => {
     // States to be passed between siblings
-    const [gridLayout, setGridLayout] = useState('');
+    const { gridLayout, setGridLayout } = props;
     const [gridWidth, setGridWidth] = useState(3);
     const [gridHeight, setGridHeight] = useState(3);
 
     return (
         <>
-            <Form 
-                gridLayout={gridLayout} 
-                setGridWidth={setGridWidth} 
-                setGridHeight={setGridHeight} 
-                setToggleFetch={props.setToggleFetch}
-            />
-            <Grid className ='container'
-                isCreate
-                setGridLayout={setGridLayout} 
-                gridWidth={gridWidth}
-                gridHeight={gridHeight}
-            />
+            <div className="create">
+                <Form 
+                    gridLayout={gridLayout} 
+                    setGridWidth={setGridWidth} 
+                    setGridHeight={setGridHeight} 
+                    setToggleFetch={props.setToggleFetch}
+                />
+                <Grid className ='container'
+                    isCreate
+                    setGridLayout={setGridLayout} 
+                    gridWidth={gridWidth}
+                    gridHeight={gridHeight}
+                />
+            </div>
         </>
     )
 }

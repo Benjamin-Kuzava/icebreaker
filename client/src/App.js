@@ -11,12 +11,15 @@ import { baseURL, config } from './services';
 const App = () => {
   const [levels, setLevels] = useState([]);
   const [toggleFetch, setToggleFetch] = useState(false);
+  const [gridLayout, setGridLayout] = useState('');
   const history = useHistory();
 
   useEffect(() => {
     const getLevels = async () => {
       const resp = await axios.get(baseURL, config);
-      setLevels(resp.data.records);
+      setLevels(resp.data.records.sort((a, b) => 
+        (a.fields.width * a.fields.height) - (b.fields.width * b.fields.height)
+      ));
       history.push('/');
     };
     getLevels();
@@ -28,14 +31,21 @@ const App = () => {
       <div className='main-grid'>
   
         <Route exact path='/'> 
-          <Home levels={levels}/>
+          <Home 
+            levels={levels}
+            setGridLayout={setGridLayout}
+          />
         </Route>
   
         <Route path='/new'>
-          <Create setToggleFetch={setToggleFetch}/>
+          <Create 
+            setToggleFetch={setToggleFetch}
+            gridLayout={gridLayout}
+            setGridLayout={setGridLayout}
+          />
         </Route>
   
-        <Route path='/select'>
+        <Route exact path='/select'>
           <Browse levels={levels}/>
         </Route>
   
