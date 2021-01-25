@@ -21,12 +21,16 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.App {
+.main-grid {
   height: 100vh;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
 }
 
 /* .play-container {

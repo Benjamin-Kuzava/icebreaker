@@ -84,3 +84,22 @@ export const checkNextNode = (grid, i, k, setCount) => {
 
 // export const handleMouseMovement = (e) => {
 //     console.log(e.target.className);
+
+
+        // useEffect(() => {
+        //     const { innerWidth, innerHeight } = window;
+
+        //     return () => {
+        //         if (innerWidth / 2 <= (numCols * 25)) {
+        //             console.log('ya too big');
+        //         }
+        //     }
+        // }, [numCols, numRows])
+
+
+        // useEffect(() => {
+        //     gridRef.current.focus();
+        //     console.log(gridRef.current.getBoundingClientRect());
+        // }, []);
+    
+        // const { width, height } = gridRef.current.getBoundingClientRect();

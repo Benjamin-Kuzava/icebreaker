@@ -24,23 +24,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
-
-      <Route exact path='/'> 
-        <Home levels={levels} />
-      </Route>
-
-      <Route path='/new'>
-        <Create setToggleFetch={setToggleFetch}/>
-      </Route>
-
-      <Route path='/select'>
-        <Browse levels={levels}/>
-      </Route>
-
-      <Route path='/select/:id'>
-        <Browse levels={levels}/>
-      </Route>
+        <Header />
+      <div className='main-grid'>
+  
+        <Route exact path='/'> 
+          <Home levels={levels} />
+        </Route>
+  
+        <Route path='/new'>
+          <Create setToggleFetch={setToggleFetch}/>
+        </Route>
+  
+        <Route path='/select'>
+          <Browse levels={levels}/>
+        </Route>
+  
+        <Route path='/select/:id'>
+          <Browse levels={levels}/>
+        </Route>
+      </div>
     </div>
   );
 }

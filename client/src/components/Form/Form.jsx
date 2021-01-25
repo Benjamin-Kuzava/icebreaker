@@ -31,51 +31,59 @@ const Form = (props) => {
 
     return (
         <form action="">
-            <label htmlFor="levelName">Level Name: </label>
-            <input 
-                name="levelName"
-                type="text"
-                value={levelName}
-                onChange={(e) => setLevelName(e.target.value)}
-            />
-            <label htmlFor="author">Author: </label>
-            <input 
-                name="author"
-                type="text"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-            />
-            <label htmlFor="height">Height: </label>
-            <input 
-                name="height"
-                type="number"
-                min='1'
-                max='11'
-                value={height}
-                onChange={(e) => {
-                    setHeight(e.target.valueAsNumber);
-                    props.setGridHeight(e.target.valueAsNumber);
-                }}
-            />
-            <label htmlFor="width">Width: </label>
-            <input 
-                name="width"
-                type="number"
-                min='1'
-                max='11'
-                value={width}
-                onChange={(e) => {
-                    setWidth(e.target.valueAsNumber);
-                    props.setGridWidth(e.target.valueAsNumber);
-                }}
-            />
-            <label htmlFor="difficulty">Difficulty: </label>
-            <input 
-                name="difficulty"
-                type="text"
-                value={difficulty}
-                onChange={(e) => setDifficulty(e.target.value)}
-            />
+            <div>
+                <label htmlFor="levelName">Level Name: </label>
+                <input 
+                    name="levelName"
+                    type="text"
+                    value={levelName}
+                    onChange={(e) => setLevelName(e.target.value)}
+                />
+            </div>
+            <div>
+                <label htmlFor="author">Author: </label>
+                <input 
+                    name="author"
+                    type="text"
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
+                />
+            </div>
+            <div>
+                <label htmlFor="difficulty">Difficulty: </label>
+                <input 
+                    name="difficulty"
+                    type="text"
+                    value={difficulty}
+                    onChange={(e) => setDifficulty(e.target.value)}
+                />
+            </div>
+            <div className="dimensions">
+                <label htmlFor="height">Height: </label>
+                <input 
+                    name="height"
+                    type="number"
+                    min='1'
+                    max='11'
+                    value={height}
+                    onChange={(e) => {
+                        setHeight(e.target.valueAsNumber);
+                        props.setGridHeight(e.target.valueAsNumber);
+                    }}
+                />
+                <label htmlFor="width">Width: </label>
+                <input 
+                    name="width"
+                    type="number"
+                    min='1'
+                    max='11'
+                    value={width}
+                    onChange={(e) => {
+                        setWidth(e.target.valueAsNumber);
+                        props.setGridWidth(e.target.valueAsNumber);
+                    }}
+                />
+            </div>
             <button type='submit' onClick={handleSubmit}>Submit Level</button>
         </form>
     )
