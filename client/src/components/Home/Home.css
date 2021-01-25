@@ -1,3 +1,25 @@
 button {
-  width: 4em;
+  width: 80px;
+}
+
+.home {
+  border: 5px solid #c4fff9;
+  border-radius: 5px;
+  padding: 1em;
+  /* box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5); */
+}
+
+.level-info {
+  min-width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #c4fff9;
+  padding-bottom: 0.25rem;
+}
+
+.level-info h2,
+.loading {
+  font-family: "Coda", cursive;
+  color: #c4fff9;
 }

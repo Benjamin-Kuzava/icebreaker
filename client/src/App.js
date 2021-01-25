@@ -28,7 +28,7 @@ const App = () => {
       <div className='main-grid'>
   
         <Route exact path='/'> 
-          <Home levels={levels} />
+          <Home levels={levels}/>
         </Route>
   
         <Route path='/new'>
