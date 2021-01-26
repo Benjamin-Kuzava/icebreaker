@@ -27,7 +27,14 @@ const Home = (props) => {
                 <h2>Loading ...</h2>
             </div>
         )
-    };
+    } else if (count >= props.levels.length) { //not working
+        return (
+            <div className="loading">
+                <h2>Congradulations! You've completed all available levels.</h2>
+                <h2>Head over to Create Levels to add your own.</h2>
+            </div>
+        )
+    }
 
     return (
         <>
@@ -39,7 +46,7 @@ const Home = (props) => {
                         onClick={() => {handleReset()}}
                     />
                     <h2>Level: {level.fields.levelName}</h2>
-                    <h3>Count: {`${count + 1}/${props.levels.length}`}</h3> 
+                    <h3>COUNT: {`${count + 1}/${props.levels.length}`}</h3> 
                 </div>
                 {<Grid
                     isHome 

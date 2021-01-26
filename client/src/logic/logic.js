@@ -25,7 +25,7 @@ export const checkNextNode = (grid, i, k, setCount, handleReset) => {
         let iPrev;
         let kPrev;
         // find previous currentPosition and store its col and row
-        // look in to useRef or  here actually.
+        // look in to useRef or useContext here(?)
     gridCopy.find((rows, i) => 
         rows.some((col, k) => {
             iPrev = i;
@@ -46,7 +46,7 @@ export const checkNextNode = (grid, i, k, setCount, handleReset) => {
             }, 750);
             console.log('win');
         // if node is visited
-        } else if (gridCopy[i][k] === 4) {
+        } else if (gridCopy[i][k] === 4 && isNeighbor(iPrev, kPrev, i, k)) {
             gridCopy[iPrev][kPrev] = 0;
             gridCopy[i][k] = 5;
             console.log('Game Over');

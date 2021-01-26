@@ -3,12 +3,9 @@
   box-sizing: border-box;
   border: solid 1px #c4fff9;
   cursor: pointer;
-  /* width: 5em;
-  height: 5em; */
 }
 
 .node-end {
-  /* background-color: #bc4b51; */
   background-color: #9dc6fb;
   position: relative;
 }

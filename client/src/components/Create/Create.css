@@ -13,12 +13,21 @@
   margin: 1em;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 950px) {
   .create {
     flex-direction: column;
+    margin-top: 6em;
+    padding: 1em 2em;
   }
 
   .create .container {
     order: -1;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .create {
+    margin-top: 6em;
+    padding: 1em 2em;
   }
 }

@@ -1,6 +1,7 @@
 import './Form.css';
 import { useEffect, useState } from 'react';
 import { baseURL, config } from '../../services';
+import Button from '../Button/Button'
 import axios from 'axios';
 
 const Form = (props) => {
@@ -13,6 +14,7 @@ const Form = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const newLevel = {
             levelName,
             author,
@@ -31,6 +33,7 @@ const Form = (props) => {
 
     return (
         <form action="">
+            <h4>LEVEL INFORMATION</h4>
             <div>
                 <label htmlFor="levelName">Level Name: </label>
                 <input 
@@ -64,11 +67,13 @@ const Form = (props) => {
                     name="height"
                     type="number"
                     min='3'
-                    max='11'
+                    max='5'
                     value={height}
                     onChange={(e) => {
-                        setHeight(e.target.valueAsNumber);
-                        props.setGridHeight(e.target.valueAsNumber);
+                        if (e.target.valueAsNumber > 0) {
+                            setHeight(e.target.valueAsNumber);
+                            props.setGridHeight(e.target.valueAsNumber);
+                        }
                     }}
                 />
                 <label htmlFor="width">Width: </label>
@@ -79,12 +84,17 @@ const Form = (props) => {
                     max='11'
                     value={width}
                     onChange={(e) => {
-                        setWidth(e.target.valueAsNumber);
-                        props.setGridWidth(e.target.valueAsNumber);
+                        if (e.target.valueAsNumber > 0) {
+                            setWidth(e.target.valueAsNumber);
+                            props.setGridWidth(e.target.valueAsNumber);
+                        }
                     }}
                 />
             </div>
-            <button type='submit' onClick={handleSubmit}>Submit Level</button>
+            <Button
+                value="Submit Level"
+                onClick={handleSubmit}
+            />
         </form>
     )
 }

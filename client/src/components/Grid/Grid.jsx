@@ -66,6 +66,17 @@ const Grid = (props) => {
         });
     }, [numCols, numRows, gridLayout]);
 
+    // const checkWindowSize = () => {
+    //     if (window.innerWidth <= 412) {
+    //         return {
+    //             gridTemplateColumns: `repeat(${numCols}, 3em)`,
+    //             gridTemplateRows: `repeat(${numRows}, 3em)`
+    //         }} else {
+    //             return {
+    //                 gridTemplateColumns: `repeat(${numCols}, 5em)`,
+    //                 gridTemplateRows: `repeat(${numRows}, 5em)`
+    //             }}}
+
     return (
         <main className ='container'
             style={{

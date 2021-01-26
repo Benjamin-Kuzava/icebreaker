@@ -35,3 +35,7 @@ button:hover:after {
   transform-origin: left;
   transform: scaleX(1);
 }
+
+button:focus {
+  outline: 3px solid #3dccc7;
+}
