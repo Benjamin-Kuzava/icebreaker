@@ -1,16 +1,18 @@
-.game-over {
+.modal {
   position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #07beb8;
+  background-color: #07beb8;
+  opacity: 0.98;
+  z-index: 10;
 }
 
 .hidden {

@@ -1,12 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import Button from "../Button/Button";
 import Grid from "../Grid/Grid";
 import List from "../List/List";
-
-const handlePlay = () => {
-  console.log("ok");
-};
 
 const Browse = (props) => {
   const params = useParams();
@@ -28,7 +23,6 @@ const Browse = (props) => {
         />
       )}
       <List levels={props.levels} />
-      {/* <Button value="Play Level" onClick={handlePlay} /> */}
     </>
   );
 };

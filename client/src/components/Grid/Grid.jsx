@@ -8,8 +8,8 @@ const Grid = (props) => {
   const {
     gridHeight: numRows,
     gridWidth: numCols,
-    setGridHeight: setNumRows,
-    setGridWidth: setNumCols,
+    // setGridHeight: setNumRows,
+    // setGridWidth: setNumCols,
     gridLayout,
     setGridLayout,
     isCreate,
@@ -44,10 +44,7 @@ const Grid = (props) => {
   };
 
   const [grid, setGrid] = useState(() => generateEmptyGrid());
-  const [gridStyle, setGridStyle] = useState({
-    gridTemplateColumns: `repeat(${numCols}, 3em)`,
-    gridTemplateRows: `repeat(${numRows}, 3em)`,
-  });
+  const [gridSize, setGridSize] = useState("5em");
 
   useEffect(() => {
     setGrid(() => {
@@ -72,40 +69,28 @@ const Grid = (props) => {
     });
   }, [numCols, numRows, gridLayout]);
 
-  // useLayoutEffect(() => {
-  //   const checkWindowSize = () => {
-  //     setNumRows((rows) => {
-  //       setNumCols((cols) => {
-  //         if (window.innerWidth <= 412) {
-  //           setGridStyle({
-  //             gridTemplateColumns: `repeat(${cols}, 3em)`,
-  //             gridTemplateRows: `repeat(${rows}, 3em)`,
-  //           });
-  //         } else {
-  //           setGridStyle({
-  //             gridTemplateColumns: `repeat(${cols}, 5em)`,
-  //             gridTemplateRows: `repeat(${rows}, 5em)`,
-  //           });
-  //         }
-  //         return cols;
-  //       });
-  //       return rows;
-  //     });
-  //   };
+  useEffect(() => {
+    const checkWindowSize = () => {
+      console.log(`hello ${window.innerWidth}`);
+      if (window.innerWidth <= 412) {
+        setGridSize("3em");
+      } else {
+        setGridSize("5em");
+      }
+    };
+    window.addEventListener("resize", checkWindowSize);
 
-  //   window.addEventListener("resize", checkWindowSize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", checkWindowSize);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("resize", checkWindowSize);
+    };
+  }, []);
 
   return (
     <main
       className="container"
       style={{
-        gridTemplateColumns: `repeat(${numCols}, 5em)`,
-        gridTemplateRows: `repeat(${numRows}, 5em)`,
+        gridTemplateColumns: `repeat(${numCols}, ${gridSize})`,
+        gridTemplateRows: `repeat(${numRows}, ${gridSize})`,
       }}
     >
       {grid.map((rows, i) =>
