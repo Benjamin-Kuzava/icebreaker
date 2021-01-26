@@ -16,11 +16,10 @@ header {
   margin: 0 0.25em;
   color: #c4fff9;
   font-family: "Coda", cursive;
-  /* font-variant: small-caps; */
 }
 
-@media screen and (min-width: 400px) {
+/* @media screen and (min-width: 400px) {
   .logo {
-    /* font-size: 1.5em; */
+    font-size: 1.5em;
   }
-}
+} */

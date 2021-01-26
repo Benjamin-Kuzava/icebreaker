@@ -17,6 +17,7 @@ const App = () => {
   useEffect(() => {
     const getLevels = async () => {
       const resp = await axios.get(baseURL, config);
+      // Sort levels by complexity
       setLevels(resp.data.records.sort((a, b) => 
         (a.fields.width * a.fields.height) - (b.fields.width * b.fields.height)
       ));

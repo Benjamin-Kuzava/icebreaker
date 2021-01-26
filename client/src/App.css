@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --light-blue100: #c4fff9;
   --light-blue200: #9ceaef;
   --light-blue400: #68d8d6;
@@ -7,7 +7,7 @@
 
   --gray200: #444;
   --gray100: #646165;
-}
+} */
 
 *,
 *::before,
@@ -17,20 +17,15 @@
 }
 
 body {
-  /* background-color: rgba(79, 81, 101, 1); */
   background: linear-gradient(rgba(79, 81, 101, 1) 60vh, #07beb8);
   font-family: "Raleway", sans-serif;
 }
 
 .main-grid {
-  /* height: 100vh;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center; */
   height: 100vh;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -38,6 +33,40 @@ body {
 .container {
   grid-row: 2 / 3;
   grid-column: 1 / -1;
+}
+
+.level-container {
+  border: 2px solid #c4fff9;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2em;
+  background-color: rgba(7, 190, 184, 0.2);
+  max-width: 70%;
+  animation: fadeIn ease-in-out 0.25s;
+}
+
+.level-container > * {
+  margin: 1em;
+}
+
+@media screen and (max-width: 950px) {
+  .level-container {
+    flex-direction: column;
+    margin-top: 6em;
+    padding: 1em 2em;
+  }
+
+  .level-container .container {
+    order: -1;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .level-container {
+    margin-top: 6em;
+    padding: 1em 2em;
+  }
 }
 
 @keyframes fadeIn {

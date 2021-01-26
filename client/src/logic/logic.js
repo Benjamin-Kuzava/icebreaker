@@ -7,11 +7,11 @@ const isNeighbor = (iPrev, kPrev, iCurr, kCurr) => {
 }
 
 // When an endNode is clicked, check if there are any unvisited tiles
-const isUnvisitedTiles = (grid) => {
+export const isNodeType = (grid, type) => {
     let result = true;
     for (const rows of grid) {
         for (const node of rows) {
-          if (node === 0) {
+          if (node === type) {
             result = false;
           }
         }
@@ -20,36 +20,33 @@ const isUnvisitedTiles = (grid) => {
 }
 
 export const checkNextNode = (grid, i, k, setCount, handleReset) => {
-        // make shallow copy
     const newGrid = produce(grid, gridCopy => {
         let iPrev;
         let kPrev;
         // find previous currentPosition and store its col and row
         // look in to useRef or useContext here(?)
-    gridCopy.find((rows, i) => 
-        rows.some((col, k) => {
-            iPrev = i;
-            kPrev = k;
-            return gridCopy[i][k] === 3;
-        }))
+        gridCopy.find((rows, i) => 
+            rows.some((col, k) => {
+                iPrev = i;
+                kPrev = k;
+                return gridCopy[i][k] === 3;
+            }))
         
         // if node is a valid neighbor of currentPosition && is unvisited
         if(isNeighbor(iPrev, kPrev, i, k) && gridCopy[i][k] === 0) {
             gridCopy[iPrev][kPrev] = 4;
             gridCopy[i][k] = grid[i][k] && grid[i][k] !== 2 ? 0 : 3;
         // if node is endNode && all non-walls have been visited
-        } else if (gridCopy[i][k] === 2 && isUnvisitedTiles(gridCopy)) {
+        } else if (gridCopy[i][k] === 2 && isNodeType(gridCopy, 0)) {
             gridCopy[iPrev][kPrev] = 4;
             gridCopy[i][k] = 6;
             setTimeout(() => {
                 setCount((prev) => prev + 1);
             }, 750);
-            console.log('win');
         // if node is visited
         } else if (gridCopy[i][k] === 4 && isNeighbor(iPrev, kPrev, i, k)) {
             gridCopy[iPrev][kPrev] = 0;
             gridCopy[i][k] = 5;
-            console.log('Game Over');
             setTimeout(() => {
                 handleReset();
             }, 500);
@@ -58,36 +55,7 @@ export const checkNextNode = (grid, i, k, setCount, handleReset) => {
     return newGrid;
 }
 
-
-
-
-// Leftover logic for keyboard controls
-// export const handleKeyPress = (e) => {
-//     switch(e.key) {
-//         case 'a':
-//         case 'ArrowLeft':
-//             console.log('left');
-//             break;
-//         case 'd':
-//         case 'ArrowRight':
-//             console.log('right');
-//             break;
-//         case 'w':
-//         case 'ArrowUp':
-//             console.log('up');
-//             break;
-//         case 's':
-//         case 'ArrowDown':
-//             console.log('down');
-//             break;
-//         default:
-//             break;
-//     }
-// }
-
-// export const handleMouseMovement = (e) => {
-//     console.log(e.target.className);
-
+// Grid CSS w/ Soleil
 
         // useEffect(() => {
         //     const { innerWidth, innerHeight } = window;

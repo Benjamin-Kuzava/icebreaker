@@ -9,9 +9,9 @@
   /* transform: rotate(90deg); */
 }
 
-@media screen and (max-width: 412px) {
+/* @media screen and (max-width: 412px) {
   .container {
     grid-template-columns: repeat(2rem);
     grid-template-rows: repeat(2rem);
   }
-}
+} */

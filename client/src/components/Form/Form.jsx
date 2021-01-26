@@ -1,7 +1,7 @@
 import './Form.css';
 import { useEffect, useState } from 'react';
 import { baseURL, config } from '../../services';
-import Button from '../Button/Button'
+import Button from '../Button/Button';
 import axios from 'axios';
 
 const Form = (props) => {
@@ -14,7 +14,6 @@ const Form = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const newLevel = {
             levelName,
             author,
@@ -23,8 +22,10 @@ const Form = (props) => {
             grid,
             difficulty
         };
-        await axios.post(baseURL, { fields: newLevel }, config);
-        props.setToggleFetch((prev) => !prev);
+        if (levelName !== '' && author !== '' && difficulty !== '') {
+            await axios.post(baseURL, { fields: newLevel }, config);
+            props.setToggleFetch((prev) => !prev);
+        }
     }
 
     useEffect(() => {

@@ -1,5 +1,4 @@
-.level-container {
-  /* border: 2px solid white; */
+/* .level-container {
   grid-row: 1 / -1;
   grid-column: 1 / 2;
   height: 90%;
@@ -17,11 +16,21 @@
   padding: 0.25em;
 }
 
-.card a {
+.level-container a {
   text-decoration: none;
   color: #c4fff9;
 }
 
 .card h6 {
   margin: 1em;
+} */
+
+.level-container a {
+  text-decoration: none;
+  font-size: 1.3em;
+  color: #c4fff9;
+}
+
+.level-container h5 {
+  margin: 0.5em 0;
 }
