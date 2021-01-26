@@ -8,8 +8,6 @@ const Grid = (props) => {
   const {
     gridHeight: numRows,
     gridWidth: numCols,
-    // setGridHeight: setNumRows,
-    // setGridWidth: setNumCols,
     gridLayout,
     setGridLayout,
     isCreate,
@@ -18,7 +16,7 @@ const Grid = (props) => {
     handleReset,
   } = props;
 
-  //Gives a class name to each node depending on node type
+  //Set node className depending on node type
   const nodeClassification = (grid, i, k) =>
     grid[i][k] === 1
       ? "node-wall"
@@ -69,10 +67,12 @@ const Grid = (props) => {
     });
   }, [numCols, numRows, gridLayout]);
 
+  // Resize grid based on window size
   useEffect(() => {
     const checkWindowSize = () => {
-      console.log(`hello ${window.innerWidth}`);
-      if (window.innerWidth <= 412) {
+      if (window.innerWidth <= 300) {
+        setGridSize("2em");
+      } else if (window.innerWidth <= 412) {
         setGridSize("3em");
       } else {
         setGridSize("5em");

@@ -7,8 +7,8 @@ import Modal from "../Modal/Modal.jsx";
 const Home = (props) => {
   const { setGridLayout } = props;
   const [level, setLevel] = useState("");
-  const [count, setCount] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
+  const [count, setCount] = useState(6);
+  const [isFinished, setIsFinished] = useState("hidden");
   const gridRef = useRef("");
 
   const handleReset = () => {
@@ -17,18 +17,14 @@ const Home = (props) => {
 
   //   Cycle through levels
   useEffect(() => {
+    // if (props.level && count > props.levels.length) {
+    //   console.log(count);
+    //   console.log(props.levels.length);
+    //   setIsFinished("modal");
+    // }
     if (props.levels.length > 0) {
       setLevel(props.levels.find((level, index) => index === count));
       gridRef.current = level;
-
-      return () => {
-        if (count >= props.levels.length) {
-          setIsFinished((prev) => {
-            console.log(prev);
-            return !prev;
-          });
-        }
-      };
     }
   }, [count, props.levels, level]);
 
@@ -43,7 +39,7 @@ const Home = (props) => {
   return (
     <>
       <div className="home">
-        <Modal isFinished={isFinished} />
+        <Modal isFinished={isFinished} setIsFinished={setIsFinished} />
         <div className="level-info">
           <Button
             value="Reset"
@@ -51,7 +47,7 @@ const Home = (props) => {
               handleReset();
             }}
           />
-          <h2>Level: {level.fields.levelName}</h2>
+          <h2>{level.fields.levelName}</h2>
           <h3>COUNT: {`${count + 1}/${props.levels.length}`}</h3>
         </div>
         {
