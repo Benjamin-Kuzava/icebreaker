@@ -4,6 +4,7 @@ button {
 
 .home {
   border: 2px solid #c4fff9;
+  width: 50vw;
   padding: 1em 1em 20px 1em;
   background-color: rgba(7, 190, 184, 0.2);
   animation: fadeIn ease-in-out 0.25s;
@@ -32,4 +33,23 @@ button {
 .level-info h2,
 .level-info h3 {
   align-self: center;
+}
+
+@media screen and (max-width: 800px) {
+  .level-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .level-info h3 {
+    font-size: 80%;
+  }
+
+  .level-info button {
+    order: 4;
+  }
+
+  .level-info h2 {
+    text-align: center;
+  }
 }

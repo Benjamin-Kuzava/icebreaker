@@ -39,7 +39,7 @@ const Home = (props) => {
   return (
     <>
       <div className="home">
-        <Modal isFinished={isFinished} setIsFinished={setIsFinished} />
+        {/* <Modal isFinished={isFinished} setIsFinished={setIsFinished} /> */}
         <div className="level-info">
           <Button
             value="Reset"

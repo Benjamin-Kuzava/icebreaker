@@ -79,3 +79,25 @@
     background-color: rgba(0, 190, 218, 0.75);
   }
 }
+
+@media screen and (max-width: 900px) {
+  .node-current:before,
+  .node-end:before {
+    height: 1.5em;
+    width: 1.5em;
+  }
+}
+@media screen and (max-width: 600px) {
+  .node-current:before,
+  .node-end:before {
+    height: 1.1em;
+    width: 1.1em;
+  }
+}
+/* @media screen and (max-width: 420px) {
+  .node-current:before,
+  .node-end:before {
+    height: 0.9em;
+    width: 0.9em;
+  }
+} */
