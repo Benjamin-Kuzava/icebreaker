@@ -63,7 +63,7 @@ const Form = (props) => {
                 <input 
                     name="height"
                     type="number"
-                    min='1'
+                    min='3'
                     max='11'
                     value={height}
                     onChange={(e) => {
@@ -75,7 +75,7 @@ const Form = (props) => {
                 <input 
                     name="width"
                     type="number"
-                    min='1'
+                    min='3'
                     max='11'
                     value={width}
                     onChange={(e) => {
