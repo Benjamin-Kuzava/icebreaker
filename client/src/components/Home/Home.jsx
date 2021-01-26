@@ -7,7 +7,7 @@ import Modal from "../Modal/Modal.jsx";
 const Home = (props) => {
   const { setGridLayout } = props;
   const [level, setLevel] = useState("");
-  const [count, setCount] = useState(6);
+  const [count, setCount] = useState(0);
   const [isFinished, setIsFinished] = useState("hidden");
   const gridRef = useRef("");
 
