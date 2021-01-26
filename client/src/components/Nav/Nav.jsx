@@ -1,5 +1,10 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Nav.css';
+
+const activeStyle = { 
+    color: '#444', 
+    fontWeight: 800 
+}
 
 const Nav = (props) => {
     return (
@@ -7,9 +12,9 @@ const Nav = (props) => {
             <input type="checkbox" className='nav-toggle' id='nav-toggle'/>
             <nav>
                 <ul>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/select'>Browse Levels</Link></li>
-                    <li><Link to='/new'>Create Levels</Link></li>
+                    <li><NavLink activeStyle={activeStyle} exact to='/'>Home</NavLink></li>
+                    <li><NavLink activeStyle={activeStyle} to='/select'>Browse Levels</NavLink></li>
+                    <li><NavLink activeStyle={activeStyle} to='/new'>Create Levels</NavLink></li>
                 </ul>
             </nav>
             <label htmlFor="nav-toggle" className='nav-toggle-label'><span></span></label>

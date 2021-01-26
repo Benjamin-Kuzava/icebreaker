@@ -40,7 +40,7 @@ export const checkNextNode = (grid, i, k, setCount, handleReset) => {
         // if node is endNode && all non-walls have been visited
         } else if (gridCopy[i][k] === 2 && isUnvisitedTiles(gridCopy)) {
             gridCopy[iPrev][kPrev] = 4;
-            gridCopy[i][k] = 3;
+            gridCopy[i][k] = 6;
             setTimeout(() => {
                 setCount((prev) => prev + 1);
             }, 750);

@@ -17,7 +17,9 @@ form {
 form div {
   margin: 1em 0;
   font-family: "Coda", cursive;
-  font-size: 200;
+  font-variant: small-caps;
+  font-weight: 500;
+  /* color: black; */
 }
 
 .dimensions input {

@@ -33,13 +33,13 @@ const Home = (props) => {
         <>
             {/* <GameOver /> */}
             <div className="home">
-                <div className="level-info">
+                <div className="level-info">            
                     <Button 
                         value='Reset'
-                        onClick={() => handleReset()}
+                        onClick={() => {handleReset()}}
                     />
                     <h2>Level: {level.fields.levelName}</h2>
-                    <h3>Count: {`${count}/${props.levels.length - 1}`}</h3> 
+                    <h3>Count: {`${count + 1}/${props.levels.length}`}</h3> 
                 </div>
                 {<Grid
                     isHome 

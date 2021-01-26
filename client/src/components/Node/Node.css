@@ -7,13 +7,9 @@
   height: 5em; */
 }
 
-.node-start {
-  background-color: green;
-  position: relative;
-}
-
 .node-end {
-  background-color: #bc4b51;
+  /* background-color: #bc4b51; */
+  background-color: #9dc6fb;
   position: relative;
 }
 
@@ -29,18 +25,60 @@
   background-color: #3dccc7;
 }
 
-.node-current::before {
+.node-current::before,
+.node-end::before {
   content: "";
   position: absolute;
   top: 25%;
   left: 30%;
   height: 2em;
   width: 2em;
-  background-color: green;
   border-radius: 50%;
+  border: 1px solid black;
+}
+
+.node-current::before {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  background-color: #9dc6fb;
+}
+
+.node-end::before {
+  background-color: black;
 }
 
 .node-broken {
   background-color: black;
+}
+
+.node-visited {
+  animation-name: visited;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+.node-finished {
+  background-color: #9dc6fb;
+}
+
+@keyframes visited {
+  0% {
+    transform: scale(0.3);
+    transform: rotateZ(10deg);
+    background-color: rgba(0, 0, 66, 0.75);
+  }
+
+  50% {
+    transform: rotateZ(-10deg);
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  75% {
+    transform: scale(1.1);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
 }

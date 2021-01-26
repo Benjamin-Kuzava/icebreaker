@@ -28,6 +28,8 @@ const Grid = (props) => {
         ? 'node-visited'
         : grid[i][k] === 5
         ? 'node-broken'
+        : grid[i][k] === 6
+        ? 'node-finished'
         : "";
 
     // Generate matrix initialized to zero
