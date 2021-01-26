@@ -72,7 +72,7 @@ const Grid = (props) => {
     const checkWindowSize = () => {
       if (window.innerWidth <= 300) {
         setGridSize("2em");
-      } else if (window.innerWidth <= 412) {
+      } else if (window.innerWidth <= 900) {
         setGridSize("3em");
       } else {
         setGridSize("5em");
