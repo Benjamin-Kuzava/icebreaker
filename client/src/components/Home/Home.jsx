@@ -22,7 +22,7 @@ const Home = (props) => {
         setTimeout(() => {
           setIsFinished(false);
           history.push("/new");
-        }, 2000);
+        }, 3000);
       }
       setLevel(levels.find((level, index) => index === count));
       gridRef.current = level;
