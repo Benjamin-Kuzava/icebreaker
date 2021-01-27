@@ -18,8 +18,8 @@ header {
   font-family: "Coda", cursive;
 }
 
-/* @media screen and (min-width: 400px) {
-  .logo {
-    font-size: 1.5em;
+@media screen and (max-width: 400px) {
+  .logo h1 {
+    font-size: 1.4em;
   }
-} */
+}

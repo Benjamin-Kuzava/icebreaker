@@ -70,9 +70,11 @@ const Grid = (props) => {
   // Resize grid based on window size
   useEffect(() => {
     const checkWindowSize = () => {
-      if (window.innerWidth <= 420) {
-        setGridSize("2em");
-      } else if (window.innerWidth <= 600) {
+      if (window.innerWidth <= 400) {
+        setGridSize("1.8em");
+      } else if (window.innerWidth <= 480) {
+        setGridSize("2.5em");
+      } else if (window.innerWidth <= 700) {
         setGridSize("3em");
       } else if (window.innerWidth <= 900) {
         setGridSize("4em");
@@ -80,6 +82,7 @@ const Grid = (props) => {
         setGridSize("5em");
       }
     };
+    checkWindowSize();
     window.addEventListener("resize", checkWindowSize);
 
     return () => {

@@ -4,7 +4,7 @@ button {
 
 .home {
   border: 2px solid #c4fff9;
-  width: 50vw;
+  width: fit-content;
   padding: 1em 1em 20px 1em;
   background-color: rgba(7, 190, 184, 0.2);
   animation: fadeIn ease-in-out 0.25s;
@@ -15,7 +15,7 @@ button {
 }
 
 .level-info {
-  min-width: 40vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -35,7 +35,9 @@ button {
   align-self: center;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) { */
+
+@media screen and (max-width: 600px) {
   .level-info {
     flex-direction: column;
     align-items: center;
