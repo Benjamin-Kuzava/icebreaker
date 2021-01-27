@@ -12,7 +12,7 @@ const List = (props) => {
       <div className="level-container">
         {props.levels &&
           props.levels.map((level) => (
-            <div key={level.id}>
+            <div key={level.id} className="list">
               <NavLink activeStyle={activeStyle} to={`/select/${level.id}`}>
                 {level.fields.levelName}
               </NavLink>

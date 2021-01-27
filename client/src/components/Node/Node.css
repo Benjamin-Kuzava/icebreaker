@@ -101,10 +101,3 @@
     width: 0.9em;
   }
 }
-@media screen and (max-width: 400px) {
-  .node-current:before,
-  .node-end:before {
-    height: 0.75em;
-    width: 0.75em;
-  }
-}
