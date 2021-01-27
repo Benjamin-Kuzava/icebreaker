@@ -54,4 +54,7 @@ button {
   .level-info h2 {
     text-align: center;
   }
+  .level-info button {
+    width: 100%;
+  }
 }
