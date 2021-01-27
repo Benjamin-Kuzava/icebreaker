@@ -6,12 +6,14 @@ import Header from './components/Header/Header.jsx'
 import Home from './components/Home/Home.jsx'
 import Browse from './components/Browse/Browse.jsx'
 import Create from './components/Create/Create.jsx'
+import Modal from './components/Modal/Modal.jsx'
 import { baseURL, config } from './services';
 
 const App = () => {
   const [levels, setLevels] = useState([]);
   const [toggleFetch, setToggleFetch] = useState(false);
   const [gridLayout, setGridLayout] = useState('');
+  const [isFinished, setIsFinished] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -31,10 +33,13 @@ const App = () => {
         <Header />
       <div className='main-grid'>
   
-        <Route exact path='/'> 
+        <Route exact path='/'>
+          {isFinished ? <Modal/> : ""}
           <Home 
             levels={levels}
             setGridLayout={setGridLayout}
+            setIsFinished={setIsFinished}
+            history={history}
           />
         </Route>
   

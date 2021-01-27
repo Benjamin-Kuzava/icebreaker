@@ -2,13 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import "./Home.css";
 import Grid from "../Grid/Grid.jsx";
 import Button from "../Button/Button.jsx";
-import Modal from "../Modal/Modal.jsx";
 
 const Home = (props) => {
-  const { setGridLayout } = props;
+  const { setGridLayout, setIsFinished, levels, history } = props;
   const [level, setLevel] = useState("");
   const [count, setCount] = useState(0);
-  const [isFinished, setIsFinished] = useState("hidden");
   const gridRef = useRef("");
 
   const handleReset = () => {
@@ -16,17 +14,20 @@ const Home = (props) => {
   };
 
   //   Cycle through levels
+  // If game is finished, push to Create page and reset
   useEffect(() => {
-    // if (props.level && count > props.levels.length) {
-    //   console.log(count);
-    //   console.log(props.levels.length);
-    //   setIsFinished("modal");
-    // }
-    if (props.levels.length > 0) {
-      setLevel(props.levels.find((level, index) => index === count));
+    if (levels.length > 0) {
+      if (count >= levels.length) {
+        setIsFinished(true);
+        setTimeout(() => {
+          setIsFinished(false);
+          history.push("/new");
+        }, 2000);
+      }
+      setLevel(levels.find((level, index) => index === count));
       gridRef.current = level;
     }
-  }, [count, props.levels, level]);
+  }, [count, levels, level, history, setIsFinished]);
 
   if (!level) {
     return (
@@ -39,7 +40,6 @@ const Home = (props) => {
   return (
     <>
       <div className="home">
-        {/* <Modal isFinished={isFinished} setIsFinished={setIsFinished} /> */}
         <div className="level-info">
           <Button
             value="Reset"

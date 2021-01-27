@@ -11,11 +11,20 @@
   right: 0;
   bottom: 0;
   background-color: #07beb8;
-  opacity: 0.98;
+  opacity: 0.96;
   z-index: 10;
 }
 
 .hidden {
-  opacity: 0;
-  z-index: -5;
+  display: none;
+}
+
+.modal h2 {
+  margin: 0.5em 0;
+}
+
+.modal h2 span {
+  color: rgba(79, 81, 101, 1);
+  font-size: 1.1em;
+  font-weight: bolder;
 }
